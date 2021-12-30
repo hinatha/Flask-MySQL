@@ -1,0 +1,36 @@
+version: '3'
+services:
+  backend:
+    container_name: mysql_backend
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    ports:
+     - "5001:5001"
+    links:
+      - mysql
+
+  frontend:
+    container_name: mysql_frontend  
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+    ports:
+     - "8080:8080"
+  
+  mysql:
+    container_name: mysql_db
+    platform: linux/x86_64
+    image: mysql:5.7
+    environment:
+      MYSQL_DATABASE: todo
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+      TZ: 'Asia/Tokyo'
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_bin
+    volumes:
+      - ./docker/data:/var/lib/mysql
+      - ./docker/sql:/docker-entrypoint-initdb.d
+    ports:
+      - 3306:3306
