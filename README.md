@@ -43,19 +43,19 @@ This app is able to use below function.
 - Docker compose
 - MySQL
 - SQLAlchemy
-- pymysql
+- PyMySQL
   
 # Requirement
 - Python==3.9
 - Flask==2.0.2
 - flask-marshmallow==0.14.0
+- Flask-Migrate==3.1.0
 - Flask-SQLAlchemy==2.5.1
-- requests==2.26.0
-- WTForms==3.0.0
 - marshmallow==3.14.1
 - marshmallow-sqlalchemy==0.27.0
 - PyMySQL==1.0.2
-- SQLAlchemy==1.4.29
+- requests==2.26.0
+- WTForms==3.0.0
  
 # Installation
  
